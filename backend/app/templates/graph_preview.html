@@ -1,0 +1,200 @@
+<!-- templates/graph_preview.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classroom Allocation Graph</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #graph {
+            width: 100%;
+            height: 700px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .node {
+            cursor: pointer;
+        }
+        .node text {
+            font-size: 12px;
+            pointer-events: none;
+        }
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+        }
+        .tooltip {
+            position: absolute;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .legend {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .legend-item {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .legend-color {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Classroom Allocation Graph</h1>
+        <div id="graph"></div>
+        <div class="legend">
+            <div class="legend-item">
+                <span class="legend-color" style="background-color: #1f77b4;"></span>
+                Students
+            </div>
+            <div class="legend-item">
+                <span class="legend-color" style="background-color: #ff7f0e;"></span>
+                Classes
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set up the SVG
+        const width = document.getElementById('graph').clientWidth;
+        const height = 700;
+        const svg = d3.select("#graph")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Create tooltip
+        const tooltip = d3.select("body")
+            .append("div")
+            .attr("class", "tooltip");
+
+        // Create the force simulation
+        const simulation = d3.forceSimulation()
+            .force("link", d3.forceLink().id(d => d.id).distance(100))
+            .force("charge", d3.forceManyBody().strength(-300))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(50));
+
+        // Load the data
+        fetch('/api/graph')
+            .then(response => response.json())
+            .then(graph => {
+                // Create the links
+                const link = svg.append("g")
+                    .selectAll("line")
+                    .data(graph.links)
+                    .join("line")
+                    .attr("class", "link")
+                    .attr("stroke-width", 2);
+
+                // Create the nodes
+                const node = svg.append("g")
+                    .selectAll("g")
+                    .data(graph.nodes)
+                    .join("g")
+                    .attr("class", "node")
+                    .call(drag(simulation));
+
+                // Add circles to nodes
+                node.append("circle")
+                    .attr("r", d => d.type === "student" ? 8 : 12)
+                    .attr("fill", d => d.type === "student" ? "#1f77b4" : "#ff7f0e")
+                    .on("mouseover", function(event, d) {
+                        tooltip.transition()
+                            .duration(200)
+                            .style("opacity", .9);
+                        tooltip.html(`
+                            <strong>${d.name}</strong><br/>
+                            ${d.type === "class" ? `Capacity: ${d.capacity}` : ""}
+                        `)
+                            .style("left", (event.pageX + 10) + "px")
+                            .style("top", (event.pageY - 28) + "px");
+                    })
+                    .on("mouseout", function() {
+                        tooltip.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                    });
+
+                // Add labels to nodes
+                node.append("text")
+                    .attr("dy", ".35em")
+                    .attr("dx", d => d.type === "student" ? 12 : 15)
+                    .text(d => d.name)
+                    .attr("font-size", "12px");
+
+                // Update positions on each tick
+                simulation.nodes(graph.nodes).on("tick", () => {
+                    link
+                        .attr("x1", d => d.source.x)
+                        .attr("y1", d => d.source.y)
+                        .attr("x2", d => d.target.x)
+                        .attr("y2", d => d.target.y);
+
+                    node
+                        .attr("transform", d => `translate(${d.x},${d.y})`);
+                });
+
+                // Add the links to the simulation
+                simulation.force("link").links(graph.links);
+            });
+
+        // Drag functions
+        function drag(simulation) {
+            function dragstarted(event) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                event.subject.fx = event.subject.x;
+                event.subject.fy = event.subject.y;
+            }
+
+            function dragged(event) {
+                event.subject.fx = event.x;
+                event.subject.fy = event.y;
+            }
+
+            function dragended(event) {
+                if (!event.active) simulation.alphaTarget(0);
+                event.subject.fx = null;
+                event.subject.fy = null;
+            }
+
+            return d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended);
+        }
+    </script>
+</body>
+</html>

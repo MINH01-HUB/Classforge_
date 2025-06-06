@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual Work Reflection Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; color: #222; }
+        h1, h2, h3 { color: #2a4d7a; }
+        h1 { border-bottom: 2px solid #2a4d7a; padding-bottom: 8px; }
+        section { margin-bottom: 32px; background: #fff; padding: 24px; border-radius: 8px; box-shadow: 0 2px 8px #0001; }
+        ul { margin-left: 24px; }
+        code { background: #eee; padding: 2px 6px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div style="text-align:center; margin-top:60px; margin-bottom:60px;">
+        <h1 style="font-size:2.2em; margin-bottom:0.5em;">Reflection Report – COS70008</h1>
+        <p style="font-size:1.2em; margin:0.3em 0;"><strong>Student Name:</strong> Bao Minh Tran</p>
+        <p style="font-size:1.2em; margin:0.3em 0;"><strong>Student ID:</strong> 104763815</p>
+        <p style="font-size:1.2em; margin:0.3em 0;"><strong>Date of Submission:</strong> 02/6/2025</p>
+        <p style="font-size:1.2em; margin:0.3em 0;"><strong>Word Count:</strong> [e.g., 1823 words]</p>
+    </div>
+    <h1>Individual Work Reflection Report</h1>
+    <figure style="text-align:center; margin-bottom:32px;">
+        <svg width="800" height="220" viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg">
+            <!-- CSV/DB -->
+            <rect x="30" y="80" width="120" height="60" fill="#e3eefd" stroke="#2a4d7a" stroke-width="2" rx="12"/>
+            <text x="90" y="105" font-size="18" font-weight="bold" text-anchor="middle" fill="#2a4d7a">CSV/DB</text>
+            <text x="90" y="125" font-size="13" text-anchor="middle" fill="#555">Student Data</text>
+            <!-- Flask Backend -->
+            <rect x="180" y="60" width="180" height="100" fill="#f7faff" stroke="#2a4d7a" stroke-width="2" rx="12"/>
+            <text x="270" y="90" font-size="18" font-weight="bold" text-anchor="middle" fill="#2a4d7a">Flask Backend</text>
+            <text x="270" y="110" font-size="13" text-anchor="middle" fill="#555">GAT Model, API</text>
+            <text x="270" y="127" font-size="13" text-anchor="middle" fill="#555">Data Processing</text>
+            <text x="270" y="144" font-size="13" text-anchor="middle" fill="#2a4d7a" font-style="italic">Processed Data</text>
+            <!-- Next.js Frontend -->
+            <rect x="390" y="60" width="200" height="100" fill="#e3eefd" stroke="#2a4d7a" stroke-width="2" rx="12"/>
+            <text x="490" y="90" font-size="18" font-weight="bold" text-anchor="middle" fill="#2a4d7a">Next.js Frontend</text>
+            <text x="490" y="110" font-size="13" text-anchor="middle" fill="#555">Visualization</text>
+            <text x="490" y="127" font-size="13" text-anchor="middle" fill="#555">Chart.js, PyVis</text>
+            <!-- User -->
+            <rect x="630" y="80" width="120" height="60" fill="#f7faff" stroke="#2a4d7a" stroke-width="2" rx="12"/>
+            <text x="690" y="105" font-size="18" font-weight="bold" text-anchor="middle" fill="#2a4d7a">User</text>
+            <text x="690" y="125" font-size="13" text-anchor="middle" fill="#555">Dashboard</text>
+            <!-- Arrows -->
+            <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L10,5 L0,10 L2,5 z" fill="#2a4d7a" />
+                </marker>
+            </defs>
+            <line x1="150" y1="110" x2="180" y2="110" stroke="#2a4d7a" stroke-width="2.5" marker-end="url(#arrow)"/>
+            <text x="165" y="100" font-size="12" fill="#2a4d7a">Raw Data</text>
+            <line x1="360" y1="110" x2="390" y2="110" stroke="#2a4d7a" stroke-width="2.5" marker-end="url(#arrow)"/>
+            <text x="375" y="100" font-size="12" fill="#2a4d7a">API (JSON)</text>
+            <line x1="590" y1="110" x2="630" y2="110" stroke="#2a4d7a" stroke-width="2.5" marker-end="url(#arrow)"/>
+            <text x="610" y="100" font-size="12" fill="#2a4d7a">Results</text>
+            <!-- User Input Arrow -->
+            <path d="M 690 140 Q 540 180 490 160" stroke="#7ed957" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/>
+            <text x="600" y="170" font-size="12" fill="#7ed957">User Input</text>
+        </svg>
+        <figcaption style="color:#444; font-size:15px; margin-top:8px;">
+            Figure: Improved System/Data Flow – Clearer layout, color coding, and labeled arrows for data and user input.
+        </figcaption>
+    </figure>
+    <figure style="text-align:center; margin-bottom:32px;">
+        <svg width="650" height="400" viewBox="0 0 650 400" xmlns="http://www.w3.org/2000/svg">
+            <!-- Edges -->
+            <line x1="325" y1="100" x2="150" y2="320" stroke="#4a90e2" stroke-width="5" />
+            <line x1="325" y1="100" x2="500" y2="320" stroke="#e94e77" stroke-width="5" />
+            <line x1="150" y1="320" x2="500" y2="320" stroke="#f5a623" stroke-width="4" />
+            <line x1="325" y1="100" x2="325" y2="320" stroke="#7ed957" stroke-width="4" />
+            <!-- Edge labels with backgrounds -->
+            <!-- Friend -->
+            <rect x="210" y="190" width="70" height="28" fill="#fff" opacity="0.9" rx="8"/>
+            <text x="245" y="210" font-size="18" text-anchor="middle" fill="#4a90e2" font-weight="bold">Friend</text>
+            <!-- Conflict -->
+            <rect x="390" y="190" width="85" height="28" fill="#fff" opacity="0.9" rx="8"/>
+            <text x="432" y="210" font-size="18" text-anchor="middle" fill="#e94e77" font-weight="bold">Conflict</text>
+            <!-- Classmate (moved above the BC edge) -->
+            <rect x="305" y="295" width="110" height="28" fill="#fff" opacity="0.9" rx="8"/>
+            <text x="360" y="315" font-size="18" text-anchor="middle" fill="#f5a623" font-weight="bold">Classmate</text>
+            <!-- Neutral -->
+            <rect x="345" y="230" width="80" height="28" fill="#fff" opacity="0.9" rx="8"/>
+            <text x="385" y="250" font-size="18" text-anchor="middle" fill="#7ed957" font-weight="bold">Neutral</text>
+            <!-- Nodes with drop shadow -->
+            <circle cx="325" cy="100" r="44" fill="#4a90e2" stroke="#2a4d7a" stroke-width="3" filter="url(#shadow)"/>
+            <text x="325" y="115" font-size="28" text-anchor="middle" fill="#fff" font-weight="bold">A</text>
+            <circle cx="150" cy="320" r="44" fill="#e94e77" stroke="#2a4d7a" stroke-width="3" filter="url(#shadow)"/>
+            <text x="150" y="335" font-size="28" text-anchor="middle" fill="#fff" font-weight="bold">B</text>
+            <circle cx="500" cy="320" r="44" fill="#f5a623" stroke="#2a4d7a" stroke-width="3" filter="url(#shadow)"/>
+            <text x="500" y="335" font-size="28" text-anchor="middle" fill="#fff" font-weight="bold">C</text>
+            <circle cx="325" cy="320" r="44" fill="#7ed957" stroke="#2a4d7a" stroke-width="3" filter="url(#shadow)"/>
+            <text x="325" y="335" font-size="28" text-anchor="middle" fill="#fff" font-weight="bold">D</text>
+            <!-- Legend -->
+            <rect x="480" y="40" width="150" height="120" fill="#fff" stroke="#bbb" stroke-width="1" rx="12"/>
+            <text x="555" y="70" font-size="18" text-anchor="middle" fill="#222" font-weight="bold">Legend</text>
+            <line x1="500" y1="90" x2="540" y2="90" stroke="#4a90e2" stroke-width="5"/>
+            <text x="545" y="95" font-size="15" fill="#4a90e2">Friend</text>
+            <line x1="500" y1="110" x2="540" y2="110" stroke="#e94e77" stroke-width="5"/>
+            <text x="545" y="115" font-size="15" fill="#e94e77">Conflict</text>
+            <line x1="500" y1="130" x2="540" y2="130" stroke="#f5a623" stroke-width="4"/>
+            <text x="545" y="135" font-size="15" fill="#f5a623">Classmate</text>
+            <line x1="500" y1="150" x2="540" y2="150" stroke="#7ed957" stroke-width="4"/>
+            <text x="545" y="155" font-size="15" fill="#7ed957">Neutral</text>
+            <defs>
+                <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#bbb"/>
+                </filter>
+            </defs>
+        </svg>
+        <figcaption style="color:#444; font-size:15px; margin-top:8px;">
+            Figure: Improved Conceptual Network Graph – All relationships clearly labeled and a legend included.
+        </figcaption>
+    </figure>
+    <section>
+        <h2>2. Individual Work Reflection</h2>
+        <h3>2.1 Project Tasks Across All Phases</h3>
+        <section>
+            <h4>Phase 1 (Week 1–4): Initial Research and Ideation</h4>
+            <ul>
+                <li>Researched graph-based allocation methods and sketched system architecture.</li>
+                <li>Set up a Next.js, TypeScript, and Tailwind front-end prototype to fetch JSON data from a future Flask endpoint and render a network visualization placeholder.</li>
+                <li>Designed a PostgreSQL schema and wrote Python scripts to ingest and normalize a real student dataset, constructing a graph structure for a Graph Attention Network (GAT).</li>
+                <li>By Week 4, completed a working Next.js frontend scaffold and a Python-based GAT training pipeline.</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Phase 2 (Week 5–7): Prototyping, Design Creation</h4>
+            <ul>
+                <li>Fully implemented the dual-head GAT model in PyTorch Geometric.</li>
+                <li>Developed Python functions to build the student graph (peer-similarity and synthetic conflict/friendship edges) and train the GAT for exam score prediction and edge-type classification.</li>
+                <li>Advanced the Next.js + Tailwind interface to fetch node and edge data from a Flask route (<code>/api/run-gat</code>) and render it with a placeholder React graph library.</li>
+                <li>Built React components (<code>&lt;NodeTooltip&gt;</code>, <code>&lt;ChartContainer&gt;</code>) for future D3 or PyVis integration.</li>
+                <li>Utilized the synthetic dataset generated by the group.</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Phase 3 (Week 8–10): Implementation, Testing</h4>
+            <ul>
+                <li>Integrated a React-D3 graph visualization (nodes colored by predicted class, edges by relationship type) and embedded Chart.js bar charts for class-size distribution.</li>
+                <li>Perfected the Flask backend: <code>/run-gat</code> endpoint returning embeddings, attention weights, and edge predictions in JSON.</li>
+                <li>Wrote unit tests to verify GAT output and frontend display of dummy data from Flask.</li>
+                <li>Optimized model hyperparameters and iterated on React components for smooth interactivity.</li>
+                <li>Documented setup steps in a README (Docker, environment variables, Neo4j credentials, Next.js build commands).</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Phase 4 (Week 11): Final Presentation and Documentation</h4>
+            <ul>
+                <li>Collaborated with the team to adapt my JSON-export endpoints, modular GAT functions, and data-formatting logic for their Flask-based application.</li>
+                <li>Reviewed Flask code to ensure node/edge/attention-weight structures matched my design.</li>
+                <li>Guided live-demo setup (hover interactions, drill-down charts) during rehearsals.</li>
+                <li>On presentation day, the Flask/Jinja2 application ran seamlessly, meeting all requirements.</li>
+            </ul>
+        </section>
+    </section>
+</body>
+</html> 

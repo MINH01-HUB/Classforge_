@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Allocator</title>
+</head>
+<body>
+    <h2>Upload CSV</h2>
+    <form id="upload-form">
+        <input type="file" name="file" required><br>
+        <label>Criterion:</label>
+        <select name="criterion">
+            <option value="academic">Academic</option>
+            <option value="wellbeing">Well-being</option>
+        </select><br>
+        <label>Number of Classes:</label>
+        <input type="number" name="num_classes" value="3"><br>
+        <button type="submit">Allocate</button>
+    </form>
+
+    <div id="output"></div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
+ 

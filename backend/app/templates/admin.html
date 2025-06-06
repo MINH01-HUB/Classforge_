@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ClassForge Admin Dashboard</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    button { margin: 10px 0; padding: 10px 20px; }
+    form { margin-bottom: 30px; }
+    h1 { color: #3a3a3a; }
+  </style>
+</head>
+<body>
+  <h1>🛠️ ClassForge Admin Panel</h1>
+
+  <!-- Upload CSV -->
+  <h3>1️⃣ Upload Student Dataset (CSV)</h3>
+  <form action="/upload-csv" method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".csv" required />
+    <button type="submit">Upload</button>
+  </form>
+
+  <!-- Trigger Preprocessing -->
+  <h3>2️⃣ Preprocess Raw → Transformed</h3>
+  <form action="/preprocess" method="post">
+    <button type="submit">Preprocess Data</button>
+  </form>
+
+  <!-- Run GAT -->
+  <h3>3️⃣ Run GAT Model and Export</h3>
+  <form action="/run-gat" method="post">
+    <button type="submit">Run GAT + Export to Neo4j + JSON</button>
+  </form>
+
+  <!-- View Graph -->
+  <h3>4️⃣ Visualize Graph</h3>
+  <a href="/static/classroom_graph_viewer.html" target="_blank">
+    <button>View D3 Graph</button>
+  </a>
+
+  <!-- Flash messages (optional) -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}
+      <p style="color: {{ 'green' if category == 'success' else 'red' }}">{{ message }}</p>
+    {% endfor %}
+  {% endwith %}
+</body>
+</html>

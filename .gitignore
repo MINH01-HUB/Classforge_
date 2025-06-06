@@ -1,0 +1,67 @@
+# Python virtual environments
+backend/env/
+backend/venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Large files and archives
+*.zip
+*.dll
+*.lib
+*.pth
+*.pt
+*.bin
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment variables
+.env
+.env.local
+
+# Logs and databases
+*.log
+*.db
+*.sqlite3
+
+# Node modules
+node_modules/
+
+# Build files
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Specific large files
+backend.zip
+backend/env/Lib/site-packages/torch/lib/torch_cpu.dll
+backend/env/Lib/site-packages/torch/lib/dnnl.lib
+
+# Temporary files
+*.tmp
+*.temp 
+
+# Python virtual environments
+env/
+venv/
+.venv/
+*.pyc
+__pycache__/
+
+# Large temporary files or backups
+*.zip
+*.rar
+*.tar.gz
+*.gz

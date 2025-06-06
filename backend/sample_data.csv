@@ -1,0 +1,11 @@
+student_id,gender,immigrant_status,SES,achievement,psychological_distress
+S001,male,native,0.75,85.5,2.3
+S002,female,immigrant,0.65,78.9,3.1
+S003,male,native,0.82,92.1,1.8
+S004,female,native,0.71,88.4,2.5
+S005,male,immigrant,0.58,76.2,3.4
+S006,female,native,0.88,94.5,1.5
+S007,male,immigrant,0.62,79.8,2.9
+S008,female,native,0.79,87.3,2.2
+S009,male,native,0.69,83.6,2.7
+S010,female,immigrant,0.72,85.9,2.6 
